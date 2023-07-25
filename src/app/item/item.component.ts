@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Task} from '../Task';
 import {TaskService} from '../task.service';
+import {Status} from '../Status';
 
 @Component({
   selector: 'app-item',
@@ -33,4 +34,6 @@ export class ItemComponent implements OnInit {
   onAssign(status: string) {
     this.taskService.onStatusChosen(this.task, status);
   }
+
+  protected readonly Status = Status;
 }

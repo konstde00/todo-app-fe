@@ -8,7 +8,8 @@
     <h5 class="mb-1"> {{ task.name }}</h5>
   </div>
   <div>
-    <button class="btn btn-primary" (click)="onAssign('NOT_STARTED')">Not started</button>
-    <button class="btn btn-danger" (click)="onAssign('IN_PROGRESS')">In progress</button>
+    <button *ngIf="task.status !== Status.NOT_STARTED" class="btn btn-danger" (click)="onAssign('NOT_STARTED')">Not started</button>
+    <button *ngIf="task.status !== Status.IN_PROGRESS" class="btn btn-warning" (click)="onAssign('IN_PROGRESS')">In progress</button>
+    <button *ngIf="task.status !== Status.COMPLETED" class="btn btn-success" (click)="onAssign('COMPLETED')">Completed</button>
   </div>
 </a>
