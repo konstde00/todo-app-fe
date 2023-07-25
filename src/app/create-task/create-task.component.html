@@ -1,0 +1,25 @@
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <div class="form-group">
+    <label for="name">Task name</label>
+    <input type="text"
+           id="name"
+           name="name"
+           class="form-control"
+           ngModel
+           required
+           #nameCtrl="ngModel">
+    <small class="help-block" *ngIf="nameCtrl.invalid && nameCtrl.touched">Please enter a name!</small>
+  </div>
+  <div class="form-group">
+    <label for="status">Task status</label>
+    <select name="status" id="status" class="form-control" ngModel required>
+      <option *ngFor="let option of availableStatuses" [value]="option.value">
+        {{ option.display }}
+      </option>
+    </select>
+  </div>
+  <button class="btn btn-primary"
+          type="submit"
+          [disabled]="form.invalid"
+  >Add new task</button>
+</form>

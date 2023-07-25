@@ -1,0 +1,8 @@
+<div cdkDropList (cdkDropListDropped)="drop($event)" class="list-group">
+  <ul>
+    <app-item
+      *ngFor="let task of tasks" [task]="task"
+    >
+    </app-item>
+  </ul>
+</div>
